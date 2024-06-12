@@ -41,12 +41,13 @@ public class EmployeeService {
     @Transactional
     public EmployeeDto createEmployee(EmployeeDto employee) {
 
+    	System.out.println(employee);
         Employee entity = employeeMapper.toEmployeeEntity(employee);
         Employee.persist(entity);
 
-        entity.persistAndFlush();
+//        entity.persistAndFlush();
        // either use persistAndFlush or persist method
-       // entity.persist();
+        entity.persist();
         if(entity.isPersistent()) {
             Optional<Employee> optionalEmp = Employee.findByIdOptional(entity.id);
             entity = optionalEmp.orElseThrow(NotFoundException::new);
@@ -86,16 +87,16 @@ public class EmployeeService {
         return employeeMapper.toEmployeeDto(entity);
     }
 
-    @Transactional
-    public EmployeeDto updateEmployee(EmployeeDto employee) {
-        Employee entity  = Employee.findById(employee.getId());
-        if(entity == null) {
-            throw new WebApplicationException("Employee with id " + employee.getId() + " does not exist.", 404);
-        }
-        employeeMapper.updateEmployeeEntityFromDto(employee,entity);
-        entity =  Employee.getEntityManager().merge(entity);
-        return employeeMapper.toEmployeeDto(entity);
-    }
+//    @Transactional
+//    public EmployeeDto updateEmployee(EmployeeDto employee) {
+//        Employee entity  = Employee.findById(employee.getId());
+//        if(entity == null) {
+//            throw new WebApplicationException("Employee with id " + employee.getId() + " does not exist.", 404);
+//        }
+//        employeeMapper.updateEmployeeEntityFromDto(employee,entity);
+//        entity =  Employee.getEntityManager().merge(entity);
+//        return employeeMapper.toEmployeeDto(entity);
+//    }
 
     @Transactional
     public EmployeeDto updateEmpDepartment(Long empId, Department department) {

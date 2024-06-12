@@ -1,5 +1,6 @@
 package it.advancia.dto;
 
+import java.math.BigInteger;
 import java.time.LocalDate;
 
 import lombok.AllArgsConstructor;
@@ -17,7 +18,7 @@ import it.advancia.entity.Department;
 @ToString
 public class EmployeeDto {
 
-    private Long id;
+//	private BigInteger id;
     private String first_name;
     private String last_name;
     private String gender;

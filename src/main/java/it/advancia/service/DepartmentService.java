@@ -30,7 +30,7 @@ public class DepartmentService {
 
     @Transactional
     public DepartmentDto createDepartment(DepartmentDto department) {
-
+    	
         Department entity = departmentMapper.toDepartmentEntity(department);
         Department.persist(entity);
 

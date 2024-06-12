@@ -1,5 +1,6 @@
 package it.advancia.dto;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import lombok.ToString;
 @ToString
 public class DepartmentDto {
 
-    private Long id;
+//	private BigInteger id;
     private String name;
     public List<Employee> employees = new ArrayList<>();
 }

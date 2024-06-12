@@ -64,14 +64,14 @@ public class EmployeeResource {
         return empService.updateEmployee(id, employee);
     }
 
-    @PUT
-    public EmployeeDto updateEmployee(EmployeeDto employee) {
-
-        if (employee.getFirst_name() == null || employee.getLast_name() == null) {
-            throw new WebApplicationException("first_name or last_name was not set on request.", 422);
-        }
-        return empService.updateEmployee(employee);
-    }
+//    @PUT
+//    public EmployeeDto updateEmployee(EmployeeDto employee) {
+//
+//        if (employee.getFirst_name() == null || employee.getLast_name() == null) {
+//            throw new WebApplicationException("first_name or last_name was not set on request.", 422);
+//        }
+//        return empService.updateEmployee(employee);
+//    }
 
     @PATCH
     @Path("/{id}/updateDept")
